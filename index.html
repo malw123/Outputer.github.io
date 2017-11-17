@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta name="renderer" content="webkit"/>
+    <title>1.1入坑Markdown</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyIHsKICAgICAgICB3aWR0aDo4cHg7CiAgICAgICAgbWFyZ2luOjAgMXB4OwogICAgICAgIGJhY2tncm91bmQ6ICNmZGZkZmQ7CiAgICB9CiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyOmhvcml6b250YWx7CiAgICAgICAgaGVpZ2h0OiA4cHg7CiAgICB9CgogICAgOjotd2Via2l0LXNjcm9sbGJhci1idXR0b257CiAgICAgICAgaGVpZ2h0OiAwOwogICAgfQoKICAgIDo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sgewogICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDsKICAgIH0KICAgIDo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2stcGllY2UgewogICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZGZkZmQ7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4OwogICAgfQogICAgOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7CiAgICAgICAgd2lkdGg6OHB4OwogICAgICAgIG1hcmdpbjogMCAxcHg7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4OwogICAgICAgIGJhY2tncm91bmQ6ICNjNGM0YzQ7CiAgICB9CiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHsKICAgICAgICBiYWNrZ3JvdW5kOiAjOTA5MDkwOwogICAgfQoKCgoKICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICNmZmZmZmY7CiAgICAgICAgZm9udC1zaXplOiAxOHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuMTc1OwogICAgICAgIGZvbnQtZmFtaWx5OiDlvq7ova/pm4Xpu5E7CiAgICAgICAgZm9udC13ZWlnaHQ6IG5vcm1hbDsKICAgICAgICBjb2xvcjogIzNjM2MzYzsKICAgICAgICBwYWRkaW5nOiAwIDM4cHg7CiAgICAgICAgbWF4LXdpZHRoOiA4MjBweDsKICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgICAgICB3b3JkLXdyYXA6YnJlYWstd29yZDsKCiAgICAgICAgb3ZlcmZsb3cteDogaGlkZGVuOwogICAgICAgIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7CiAgICAgICAgLXdlYmtpdC10ZXh0LXNpemUtYWRqdXN0OiBub25lOwogICAgfQoKICAgIGJyewogICAgICAgIGxpbmUtaGVpZ2h0OiAyLjE3NTsKICAgIH0KCgoKICAgIEBtZWRpYSAobWF4LXdpZHRoOiA2MDBweCkgewogICAgICAgIGJvZHl7CiAgICAgICAgICAgIHBhZGRpbmc6IDAgMzBweDsKICAgICAgICB9CiAgICB9CgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDQ4MHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAyMHB4OwogICAgICAgIH0KICAgIH0KCiAgICAuZ2lzdHsKICAgICAgICB3b3JkLWJyZWFrOiBub3JtYWw7CiAgICB9CgogICAgLnBvc3R7CiAgICAgICAgbWFyZ2luLXRvcDogMTBweDsKICAgICAgICBtYXJnaW4tYm90dG9tOiA1MHB4OwogICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgIH0KCgoKICAgIGltZ3sKICAgICAgICBtYXgtd2lkdGg6IDk4JTsKICAgICAgICBtYXJnaW46IDAuOGVtIGF1dG8gMC44ZW0gYXV0bzsKICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICB9CgogICAgaDEgaW1nLCBoMiBpbWcsIGgzIGltZywgaDQgaW1nLCBoNSBpbWcsIGg2IGltZ3sKICAgICAgICBtYXJnaW46IGF1dG87CiAgICB9CgogICAgLngyX2ltYWdlewogICAgICAgIHpvb206IDUwJTsKICAgIH0KCiAgICAueDNfaW1hZ2V7CiAgICAgICAgem9vbTogMzMuMzMlOwogICAgfQoKICAgIC54NF9pbWFnZXsKICAgICAgICB6b29tOiAyNSU7CiAgICB9CgoKICAgIHAgaW1newogICAgICAgIG1hcmdpbjogMCBhdXRvOwogICAgfQoKICAgIHB7CiAgICAgICAgd29yZC13cmFwOmJyZWFrLXdvcmQ7CiAgICAgICAgb3ZlcmZsb3c6aGlkZGVuOwogICAgICAgIG1hcmdpbjogMS41ZW0gMDsKICAgIH0KCiAgICBsaSBwewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjk1OwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICAucF9wYXJ0IHsKICAgICAgICBtYXJnaW46IDEwcHggMDsKICAgIH0KCiAgICAucF9wYXJ0IHB7CiAgICAgICAgbWFyZ2luOiAwIDAgMC42ZW0gMDsKICAgIH0KCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBzdGFydHMqLwogICAgLypoMiwgaDMsIGg0LCBoNSwgaDYsIC5wX3BhcnQgcCwgLnRvZG9faXRlbSwgcHsKICAgICAgICB0ZXh0LWluZGVudDogMzZweDsKICAgIH0qLwogICAgdGFibGUsIHByZSwgc3ZnLCAuY29kZWhpbGl0ZXRhYmxlewogICAgICAgIG1hcmdpbi1sZWZ0OiAzNnB4OwogICAgICAgIG1hcmdpbi1yaWdodDogMzZweDsKICAgIH0KCiAgICAuY29kZWhpbGl0ZXRhYmxlIHByZXsKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CgogICAgfQoKICAgIC5jb2RlaGlsaXRldGFibGUgLmNvZGVoaWxpdGUgcHJlewogICAgICAgIGJvcmRlci1sZWZ0OiBub25lOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIGVuZHMqLwoKCiAgICBibG9ja3F1b3RlIC5wX3BhcnQgcCwgbGkgLnBfcGFydCBwewogICAgICAgIHRleHQtaW5kZW50OiAwICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIGhyewogICAgICAgIG1hcmdpbjogMzhweCAwOwogICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICBib3JkZXItYm90dG9tOiAxcHggZGFzaGVkICNlM2UzZTM7CiAgICAgICAgY29sb3I6ICNlM2UzZTM7CiAgICAgICAgaGVpZ2h0OiAxcHg7CiAgICAgICAgbGluZS1oZWlnaHQ6MXB4OwogICAgICAgIGZvbnQtc2l6ZToxcHg7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICMxMGEzZWU7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjZlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogIzEwYTNlZTsKICAgIH0KCiAgICBoMSwgaDIsIGgzewogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICB9CgogICAgaDIsIGgzewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAxLjVlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjhlbTsKICAgIH0KCiAgICBoMiB7CiAgICAgICAgZm9udC1zaXplOiAxLjQ1ZW07CiAgICB9CgogICAgaDMgewogICAgICAgIGZvbnQtc2l6ZTogMS4yNWVtCiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDAuNGVtIHNvbGlkICNkZGRkZGQ7CiAgICAgICAgY29sb3I6ICM4ODg4ODg7CiAgICAgICAgbWluLWhlaWdodDoyMHB4OwogICAgfQoKCiAgICBibG9ja3F1b3RlIHAgewogICAgICAgIG1hcmdpbjogMC44ZW0gMDsKICAgIH0KCiAgICBibG9ja3F1b3RlIHNwYW4ubWRfbGluZSB7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yNWVtOwogICAgICAgIG1hcmdpbi10b3A6IDAuMjVlbTsKICAgIH0KCiAgICBibG9ja3F1b3RlIHVsewogICAgICAgIHBhZGRpbmc6IDAgMTVweDsKICAgIH0KCiAgICBibG9ja3F1b3RlIHNtYWxsIHsKICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgbWFyZ2luOiAwLjhlbSAwIDAuOGVtIDEuNWVtOwogICAgICAgIGZvbnQtc2l6ZTogMC45ZW07CiAgICAgICAgY29sb3I6ICNjY2M7CiAgICB9CgoKCiAgICB0YWJsZSB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7CiAgICAgICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjZDlkOWQ5OwogICAgICAgIGJvcmRlci1sZWZ0OiAwOwogICAgICAgIG1hcmdpbi10b3A6IDIwcHg7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDsKICAgIH0KCgogICAgdGgsIHRkIHsKICAgICAgICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkOWQ5ZDk7CiAgICAgICAgcGFkZGluZzogOHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OiAyMHB4OwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICAgICAgdmVydGljYWwtYWxpZ246IHRvcDsKICAgICAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2Q5ZDlkOTsKICAgIH0KCgoKCiAgICBjb2RlewogICAgICAgIGJhY2tncm91bmQ6ICNmNWY1ZjU7CiAgICAgICAgcGFkZGluZzogMCA1cHg7CiAgICAgICAgbWFyZ2luOiAwIDJweDsKICAgIH0KCiAgICBwcmV7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTZlNjsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgb3ZlcmZsb3c6IGF1dG87CiAgICAgICAgYmFja2dyb3VuZDogI2Y3ZjdmNzsKICAgICAgICBmb250LXNpemU6IDkwJTsKICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICB3b3JkLXdyYXA6IG5vcm1hbDsKICAgIH0KCiAgICBwcmUgY29kZXsKICAgICAgICBib3JkZXI6bm9uZTsKICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHByZSBwewogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHRoLCAuY29kZWhpbGl0ZSB0ZHsKICAgICAgICBsaW5lLWhlaWdodDogMS44ZW07CiAgICB9CgoKICAgIGF7CiAgICAgICAgY29sb3I6ICM0MDgzYzQ7CiAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgIC8vYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHRyYW5zcGFyZW50OwogICAgfQoKICAgIGE6aG92ZXJ7CiAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgIzQwODNjNDsKICAgIH0KCiAgICBzdHJvbmcgewogICAgICAgIGNvbG9yOiAjMDAwMDAwOwogICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgfQoKCiAgICAvKiBmb3IgbWFya2Rvd24gKi8KCiAgICAubGluZW5vcyBwcmV7CgkJYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CgkJYm9yZGVyOiBub25lOwoJfQoJLyoKCS5saW5lbm9zewoJICAgIHBhZGRpbmc6IDAgMCAwIDEwcHg7Cgl9CgkqLwoKICAgIC50b2N7CiAgICAgICAgYmFja2dyb3VuZDogI2ZkZmRmZDsKICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTZlNjsKICAgICAgICBtYXJnaW46IDI3cHggMCA0N3B4IDA7CiAgICAgICAgcGFkZGluZzogMTBweCAwOwogICAgfQoKICAgIC50b2MgdWx7CiAgICAgICAgLy9wYWRkaW5nOiA1cHggNDJweDsKICAgIH0KCiAgICAudG9jIHVsIGxpewogICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQogICAgLnRvYyBhewogICAgICAgIGNvbG9yOiAjM2MzYzNjOwogICAgfQoKCgogICAgLnRvZG9faXRlbXsKICAgICAgICBsaXN0LXN0eWxlOiBub25lOwogICAgICAgIG1hcmdpbi1sZWZ0OiAtMS41ZW0KICAgIH0KICAgIC50b2RvX2l0ZW0gLnRvZG9faXRlbSB7CiAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG87CiAgICB9CgogICAgLnRvZG9fZG9uZV9pdGVtewogICAgICAgIGNvbG9yOiAjOTk5OTk5OwogICAgfQoKICAgIC50b2RvX3VuZG9uZV9pdGVtewogICAgICAgIGNvbG9yOiAjYzg1YTU3OwogICAgfQoKCiAgICB1bCBsaS50b2RvX2l0ZW17CglsaXN0LXN0eWxlLXR5cGU6IG5vbmU7CiAgICB9CgogICAgdWwgbGkudG9kb19pdGVtOmJlZm9yZXsKICAgICAgICBjb250ZW50OiAnXDI3MTUnOwogICAgICAgIHBhZGRpbmctcmlnaHQ6IDAuN2VtOwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ1wyNzEzJzsKICAgICAgICBwYWRkaW5nLXJpZ2h0OiAwLjdlbTsKICAgICAgICBmb250LWZhbWlseTogYXJpYWw7CiAgICB9CgogICAgdWwgbGkudG9kb19pdGVtIGlucHV0ewogICAgICAgIGRpc3BsYXk6bm9uZQogICAgfQoKCiAgICAvKnB5Z21lbnRzKi8KCiAgICAuY29kZWhpbGl0ZXsKICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKICAgIHRhYmxlLmNvZGVoaWxpdGV0YWJsZXsgYm9yZGVyOm5vbmU7IH0KCgogICAgLmNvZGVoaWxpdGV0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30KCiAgICAuZmxvdy1ncmFwaGlje3RleHQtYWxpZ246IGNlbnRlcn0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgoKICAgICAgICBwLm1kX2Jsb2NreyB9CiAgICAgICAgc3Bhbi5tZF9saW5le3RleHQtaW5kZW50OiAzNnB4OyBkaXNwbGF5OmJsb2NrOyBtYXJnaW4tYm90dG9tOjAuNWVtOyBsaW5lLWhlaWdodDoxLjg4MTM3NTsgfQogICAgICAgIGxpIC5tZF9saW5lewogICAgICAgICAgICB0ZXh0LWluZGVudDogMDsgZGlzcGxheTogaW5saW5lOyBwYWRkaW5nOiAwOwogICAgICAgIH0KICAgICAgICAubWRfbGluZSBicnsgZGlzcGxheTogbm9uZTt9CiAgICAgICAgLmNvZGVoaWxpdGUgLmhsbCB7IGJhY2tncm91bmQtY29sb3I6ICNmZmZmY2MgfQouY29kZWhpbGl0ZSAgeyBiYWNrZ3JvdW5kOiAjZWVlZWRkOyB9Ci5jb2RlaGlsaXRlIC5jIHsgY29sb3I6ICM5OTk5OTkgfSAvKiBDb21tZW50ICovCi5jb2RlaGlsaXRlIC5lcnIgeyBjb2xvcjogI2E2MTcxNzsgYmFja2dyb3VuZC1jb2xvcjogI2UzZDJkMiB9IC8qIEVycm9yICovCi5jb2RlaGlsaXRlIC5rIHsgY29sb3I6ICM4QjAwOEI7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogS2V5d29yZCAqLwouY29kZWhpbGl0ZSAubiB7IGNvbG9yOiAjNTU1NTU1IH0gLyogTmFtZSAqLwouY29kZWhpbGl0ZSAubyB7IGNvbG9yOiAjNTU1NTU1IH0gLyogT3BlcmF0b3IgKi8KLmNvZGVoaWxpdGUgLnAgeyBjb2xvcjogIzU1NTU1NSB9IC8qIFB1bmN0dWF0aW9uICovCi5jb2RlaGlsaXRlIC5jaCB7IGNvbG9yOiAjOTk5OTk5IH0gLyogQ29tbWVudC5IYXNoYmFuZyAqLwouY29kZWhpbGl0ZSAuY20geyBjb2xvcjogIzk5OTk5OSB9IC8qIENvbW1lbnQuTXVsdGlsaW5lICovCi5jb2RlaGlsaXRlIC5jcCB7IGNvbG9yOiAjMWU4ODliIH0gLyogQ29tbWVudC5QcmVwcm9jICovCi5jb2RlaGlsaXRlIC5jcGYgeyBjb2xvcjogIzk5OTk5OSB9IC8qIENvbW1lbnQuUHJlcHJvY0ZpbGUgKi8KLmNvZGVoaWxpdGUgLmMxIHsgY29sb3I6ICM5OTk5OTkgfSAvKiBDb21tZW50LlNpbmdsZSAqLwouY29kZWhpbGl0ZSAuY3MgeyBjb2xvcjogIzhCMDA4QjsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBDb21tZW50LlNwZWNpYWwgKi8KLmNvZGVoaWxpdGUgLmdkIHsgY29sb3I6ICNhYTAwMDAgfSAvKiBHZW5lcmljLkRlbGV0ZWQgKi8KLmNvZGVoaWxpdGUgLmdlIHsgZm9udC1zdHlsZTogaXRhbGljIH0gLyogR2VuZXJpYy5FbXBoICovCi5jb2RlaGlsaXRlIC5nciB7IGNvbG9yOiAjYWEwMDAwIH0gLyogR2VuZXJpYy5FcnJvciAqLwouY29kZWhpbGl0ZSAuZ2ggeyBjb2xvcjogIzAwMDA4MDsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBHZW5lcmljLkhlYWRpbmcgKi8KLmNvZGVoaWxpdGUgLmdpIHsgY29sb3I6ICMwMGFhMDAgfSAvKiBHZW5lcmljLkluc2VydGVkICovCi5jb2RlaGlsaXRlIC5nbyB7IGNvbG9yOiAjODg4ODg4IH0gLyogR2VuZXJpYy5PdXRwdXQgKi8KLmNvZGVoaWxpdGUgLmdwIHsgY29sb3I6ICM1NTU1NTUgfSAvKiBHZW5lcmljLlByb21wdCAqLwouY29kZWhpbGl0ZSAuZ3MgeyBmb250LXdlaWdodDogYm9sZCB9IC8qIEdlbmVyaWMuU3Ryb25nICovCi5jb2RlaGlsaXRlIC5ndSB7IGNvbG9yOiAjODAwMDgwOyBmb250LXdlaWdodDogYm9sZCB9IC8qIEdlbmVyaWMuU3ViaGVhZGluZyAqLwouY29kZWhpbGl0ZSAuZ3QgeyBjb2xvcjogI2FhMDAwMCB9IC8qIEdlbmVyaWMuVHJhY2ViYWNrICovCi5jb2RlaGlsaXRlIC5rYyB7IGNvbG9yOiAjOEIwMDhCOyBmb250LXdlaWdodDogYm9sZCB9IC8qIEtleXdvcmQuQ29uc3RhbnQgKi8KLmNvZGVoaWxpdGUgLmtkIHsgY29sb3I6ICM4QjAwOEI7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogS2V5d29yZC5EZWNsYXJhdGlvbiAqLwouY29kZWhpbGl0ZSAua24geyBjb2xvcjogIzhCMDA4QjsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBLZXl3b3JkLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAua3AgeyBjb2xvcjogIzhCMDA4QjsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBLZXl3b3JkLlBzZXVkbyAqLwouY29kZWhpbGl0ZSAua3IgeyBjb2xvcjogIzhCMDA4QjsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBLZXl3b3JkLlJlc2VydmVkICovCi5jb2RlaGlsaXRlIC5rdCB7IGNvbG9yOiAjYTdhN2E3OyBmb250LXdlaWdodDogYm9sZCB9IC8qIEtleXdvcmQuVHlwZSAqLwouY29kZWhpbGl0ZSAubSB7IGNvbG9yOiAjQjQ1MkNEIH0gLyogTGl0ZXJhbC5OdW1iZXIgKi8KLmNvZGVoaWxpdGUgLnMgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nICovCi5jb2RlaGlsaXRlIC5uYSB7IGNvbG9yOiAjNjU4YjAwIH0gLyogTmFtZS5BdHRyaWJ1dGUgKi8KLmNvZGVoaWxpdGUgLm5iIHsgY29sb3I6ICM2NThiMDAgfSAvKiBOYW1lLkJ1aWx0aW4gKi8KLmNvZGVoaWxpdGUgLm5jIHsgY29sb3I6ICMwMDhiNDU7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogTmFtZS5DbGFzcyAqLwouY29kZWhpbGl0ZSAubm8geyBjb2xvcjogIzAwNjg4QiB9IC8qIE5hbWUuQ29uc3RhbnQgKi8KLmNvZGVoaWxpdGUgLm5kIHsgY29sb3I6ICM3MDdhN2MgfSAvKiBOYW1lLkRlY29yYXRvciAqLwouY29kZWhpbGl0ZSAubmkgeyBjb2xvcjogIzU1NTU1NSB9IC8qIE5hbWUuRW50aXR5ICovCi5jb2RlaGlsaXRlIC5uZSB7IGNvbG9yOiAjMDA4YjQ1OyBmb250LXdlaWdodDogYm9sZCB9IC8qIE5hbWUuRXhjZXB0aW9uICovCi5jb2RlaGlsaXRlIC5uZiB7IGNvbG9yOiAjMDA4YjQ1IH0gLyogTmFtZS5GdW5jdGlvbiAqLwouY29kZWhpbGl0ZSAubmwgeyBjb2xvcjogIzU1NTU1NSB9IC8qIE5hbWUuTGFiZWwgKi8KLmNvZGVoaWxpdGUgLm5uIHsgY29sb3I6ICMwMDhiNDU7IHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lIH0gLyogTmFtZS5OYW1lc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm54IHsgY29sb3I6ICM1NTU1NTUgfSAvKiBOYW1lLk90aGVyICovCi5jb2RlaGlsaXRlIC5weSB7IGNvbG9yOiAjNTU1NTU1IH0gLyogTmFtZS5Qcm9wZXJ0eSAqLwouY29kZWhpbGl0ZSAubnQgeyBjb2xvcjogIzhCMDA4QjsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBOYW1lLlRhZyAqLwouY29kZWhpbGl0ZSAubnYgeyBjb2xvcjogIzAwNjg4QiB9IC8qIE5hbWUuVmFyaWFibGUgKi8KLmNvZGVoaWxpdGUgLm93IHsgY29sb3I6ICM4QjAwOEIgfSAvKiBPcGVyYXRvci5Xb3JkICovCi5jb2RlaGlsaXRlIC53IHsgY29sb3I6ICNiYmJiYmIgfSAvKiBUZXh0LldoaXRlc3BhY2UgKi8KLmNvZGVoaWxpdGUgLm1iIHsgY29sb3I6ICNCNDUyQ0QgfSAvKiBMaXRlcmFsLk51bWJlci5CaW4gKi8KLmNvZGVoaWxpdGUgLm1mIHsgY29sb3I6ICNCNDUyQ0QgfSAvKiBMaXRlcmFsLk51bWJlci5GbG9hdCAqLwouY29kZWhpbGl0ZSAubWggeyBjb2xvcjogI0I0NTJDRCB9IC8qIExpdGVyYWwuTnVtYmVyLkhleCAqLwouY29kZWhpbGl0ZSAubWkgeyBjb2xvcjogI0I0NTJDRCB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIgKi8KLmNvZGVoaWxpdGUgLm1vIHsgY29sb3I6ICNCNDUyQ0QgfSAvKiBMaXRlcmFsLk51bWJlci5PY3QgKi8KLmNvZGVoaWxpdGUgLnNiIHsgY29sb3I6ICNDRDU1NTUgfSAvKiBMaXRlcmFsLlN0cmluZy5CYWNrdGljayAqLwouY29kZWhpbGl0ZSAuc2MgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLkNoYXIgKi8KLmNvZGVoaWxpdGUgLnNkIHsgY29sb3I6ICNDRDU1NTUgfSAvKiBMaXRlcmFsLlN0cmluZy5Eb2MgKi8KLmNvZGVoaWxpdGUgLnMyIHsgY29sb3I6ICNDRDU1NTUgfSAvKiBMaXRlcmFsLlN0cmluZy5Eb3VibGUgKi8KLmNvZGVoaWxpdGUgLnNlIHsgY29sb3I6ICNDRDU1NTUgfSAvKiBMaXRlcmFsLlN0cmluZy5Fc2NhcGUgKi8KLmNvZGVoaWxpdGUgLnNoIHsgY29sb3I6ICMxYzdlNzE7IGZvbnQtc3R5bGU6IGl0YWxpYyB9IC8qIExpdGVyYWwuU3RyaW5nLkhlcmVkb2MgKi8KLmNvZGVoaWxpdGUgLnNpIHsgY29sb3I6ICNDRDU1NTUgfSAvKiBMaXRlcmFsLlN0cmluZy5JbnRlcnBvbCAqLwouY29kZWhpbGl0ZSAuc3ggeyBjb2xvcjogI2NiNmMyMCB9IC8qIExpdGVyYWwuU3RyaW5nLk90aGVyICovCi5jb2RlaGlsaXRlIC5zciB7IGNvbG9yOiAjMWM3ZTcxIH0gLyogTGl0ZXJhbC5TdHJpbmcuUmVnZXggKi8KLmNvZGVoaWxpdGUgLnMxIHsgY29sb3I6ICNDRDU1NTUgfSAvKiBMaXRlcmFsLlN0cmluZy5TaW5nbGUgKi8KLmNvZGVoaWxpdGUgLnNzIHsgY29sb3I6ICNDRDU1NTUgfSAvKiBMaXRlcmFsLlN0cmluZy5TeW1ib2wgKi8KLmNvZGVoaWxpdGUgLmJwIHsgY29sb3I6ICM2NThiMDAgfSAvKiBOYW1lLkJ1aWx0aW4uUHNldWRvICovCi5jb2RlaGlsaXRlIC52YyB7IGNvbG9yOiAjMDA2ODhCIH0gLyogTmFtZS5WYXJpYWJsZS5DbGFzcyAqLwouY29kZWhpbGl0ZSAudmcgeyBjb2xvcjogIzAwNjg4QiB9IC8qIE5hbWUuVmFyaWFibGUuR2xvYmFsICovCi5jb2RlaGlsaXRlIC52aSB7IGNvbG9yOiAjMDA2ODhCIH0gLyogTmFtZS5WYXJpYWJsZS5JbnN0YW5jZSAqLwouY29kZWhpbGl0ZSAuaWwgeyBjb2xvcjogI0I0NTJDRCB9IC8qIExpdGVyYWwuTnVtYmVyLkludGVnZXIuTG9uZyAqLw==">
+    <script src="https://static.farbox.com/service/static_3rd/staticfile/ajax/libs/echarts/3.1.5/echarts.min.js" type= "text/javascript"></script>
+</head>
+<body>
+
+
+<div class="post">
+    
+    <div class="post_body">
+        <p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><center><b><big>最好用的Markdown编辑器</center></b></big><br /></span>
+    <span class="md_line md_line_dom_embed"><img class="" src="http://opa3m1qai.bkt.clouddn.com/blog/20171117/085327905.png?imageslim" alt="mark" title="" ><br /></span>
+    <span class="md_line">自从去年迷上<code>Markdown</code>这种神奇的写作方式，就给我打开了一扇新的大门，从此之后便开始经历了各种<code>Markdown</code>编辑器，最后选择了<code>Markeditor</code>作为我的主力编辑器已经有小半年了，它是一款国产良心软件，剁手120入的，只能用惊艳来形容。附下载链接<br /></span>
+    <span class="md_line"><a class="md_compiled" href="http://zrey.com/app/markeditor">Markeditor</a><br /></span>
+    <span class="md_line">首先，这是一篇软文；其次，这是一篇我自己总结的使用教程。<br /></span>
+    <span class="md_line">主要从以下几个方面来写</span>
+</p>
+
+
+<ul>
+<li>5分钟上手Markdown</li>
+<li>快捷操作</li>
+<li>让编辑器更好用</li>
+<li>使用过程中遇到的问题</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line">世界上的事物都符合二八定律，在财富领域一个国家80%的财富掌握在20%的人里，一个行业里80%的利润被20%的企业挣走了，对一个软件来说，我们最常使用的功能只有这个软件20%的功能。但是，<strong>存在即合理，不是不用，只是时候未到</strong></span>
+</p>
+
+
+<h3 id="toc_0">5分钟上手Markdown</h3>
+
+<p class="md_block">
+    <span class="md_line">可以看<code>Markeditor</code>的帮助选项，我这里就不多说了，都是基本的操作，真的真的很容易上手。<br /></span>
+    <span class="md_line"><strong>需要注意的是这里所用到的符号全部都是英文状态下的，</strong>因为<code>Markeditor</code>提供了一个中文输入法的功能，所以我一般是不在意的，这里给用别的编辑器的小伙伴说一下。<br /></span>
+    <span class="md_line">还有就是<strong>空格键</strong>，大部分的标记语法其实都需要在后加上空格的，但是<code>Markeditor</code>也在这里进行了优化，如果用别的编辑器可能也会遇到这种问题。</span>
+</p>
+
+
+<h3 id="toc_1">快捷操作</h3>
+
+<p class="md_block">
+    <span class="md_line">其实<code>Markeditor</code>里面有很多的快捷操作，不得不说快捷键是评价一个软件的重要因素，我的理念就是在能用键盘操作的情况下绝不会去用鼠标，这个也是可以推广到别的软件，推广到操作系统。<br /></span>
+    <span class="md_line">上面的思维导图里只是我最常用的快捷操作，这就是二八定律，其实最常用的也就那几个，但是作者想的还是相当周到的。</span>
+</p>
+
+
+<h3 id="toc_2">让编辑器更好用</h3>
+
+<ul>
+<li><code>markdown</code>只有黑色的字体，好在<code>markeditor</code>还提供了字体样式的选择，我们可以调用HTML的语言让它的格式丰富一些，最让我惊喜的就是可以改变字体的颜色，这对于做笔记来说更多了一个强调的样式，也使文章更加多彩。</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">使用方法如下<br /></span>
+    <span class="md_line md_line_dom_embed"><code>&lt;font face=&quot;楷体&quot; size=5 color=&quot;red&quot;&gt;这里面的字体是红色的5号楷体&lt;/font&gt;</code><br /></span>
+    <span class="md_line">如果这样写的话就是下面的效果<br /></span>
+    <span class="md_line md_line_dom_embed"><font face="楷体" size=5 color="red">这里面的字体是红色的5号楷体</font></span>
+</p>
+
+
+<ul>
+<li>列表与制图</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line"><code>Markeditor</code>采用的是作者自己改造的表格，相对来说更加好用，感觉也更加漂亮，基本的操作已经够用了， 如果比较专业的表格和图表肯定是比较吃力的。<br /></span>
+    <span class="md_line md_line_dom_embed"><img class="" src="http://opa3m1qai.bkt.clouddn.com/blog/20171116/194420968.jpg" alt="mark" title="" ></span>
+</p>
+
+<!--md_echarts--><div class="md_echarts" id="ZWxLGx5guTaAokxyziYQFk4" style="width:100%;min-width: 600px;height:400px;"></div>
+    <!--js_run_it--><script type="text/javascript">
+    var my_chart = echarts.init(document.getElementById('ZWxLGx5guTaAokxyziYQFk4'));
+    var option = {
+        animation: true,
+        tooltip : {
+            trigger: 'axis'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            boundaryGap: false,
+            data: ["6月05","6月06","6月07","6月08","6月09","6月10","6月11","6月12","6月13","6月14","6月16","6月17","6月18","6月19","6月20","6月21","6月22","6月25","6月28","6月29","6月30"]
+        },
+        legend: {
+                data: ["生稿速度" , "最快速度"]
+            },
+        yAxis:{},
+        series:[ {
+        name: '生稿速度',
+        type: 'line',
+        areaStyle: {normal: {}},
+        data: [55,48,50,56,52,60,59,62,59,64,63,62,68,62,72,68,69,62,65,77,79]
+    },{
+        name: '最快速度',
+        type: 'line',
+        areaStyle: {normal: {}},
+        data: [84,68,79,85,75,80,80,99,92,97,87,73,96,93,99,102,91,100,88,100,91]
+    } ]
+    };
+    my_chart.setOption(option);
+    </script>
+    
+<!--block_code_end-->
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">以上是我练习打字的速度折线图，纯粹用<code>Markeditor</code>生成的，很漂亮有木有。<br /></span>
+    <span class="md_line">具体操作看说明书。</span>
+</p>
+
+
+<ul>
+<li>公式插入</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line">说到公式插入，作为一个工科生肯定是比较头痛的事，因为貌似我们除了<code>word</code>之处找不到别的可以用来写公式的软件，<code>word</code>里面的公式是图片格式，一不小心就乱了，这是比较恶心的；当然还有一个比较专业的软件<code>LaTex</code>，那个学习成本就比较高了。<br /></span>
+    <span class="md_line">那么<code>markdown</code>就可以很简单的解决这个问题，具体操作看说明书。<br /></span>
+    <span class="md_line">介绍一下<strong>如何进行快速的公式输入</strong>，其实很简单，不必去死记硬背那些数学符号的表达，<a class="md_compiled" href="http://www.codecogs.com/latex/eqneditor.php">在线公式编辑器</a>是帮你把实在的公式转化成你所需要的符号的一个网站，有点类似于<code>word</code>的公式编辑器,你在上面输入，下面就可以直接展示是什么公式，比较适合我这种小白，然后再把文本框里的东西复制拷出来就行了。</span>
+</p>
+
+
+<script type="math/tex; mode=display" id="MathKk22JUciWjQ7dQaeW4czx6">\int_{1}^{5} x^{3}dx</script>
+
+<!--block_code_end-->
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line md_line_dom_embed"><img class="" src="http://opa3m1qai.bkt.clouddn.com/blog/20171116/211923412.gif" alt="mark" title="" ><br /></span>
+    <span class="md_line">以上是这个公式的书写过程<br /></span>
+    <span class="md_line"><strong>有一个问题需要说明一下，就是<code>Markeditor</code>里没有说明如何将公式与文字放在一起排版，</strong>它的说明书里只说明了如何用公式，并且用那种方法生成的公式单独占了一行，如果有将公式放在一段文字里的需求的话就不会了，比较尴尬。<br /></span>
+    <span class="md_line">其实非常简单，<br /></span>
+    <span class="md_line"><code>$公式$</code>这样写的话就会和文字在一起了，<br /></span>
+    <span class="md_line"><code>$$公式$$</code>这样写的话公式就会单独占一行,<br /></span>
+    <span class="md_line">$A^3$ <strong>后面还可以接着写东西</strong>，这是最大的不同，而如果用$$就不行了。<br /></span>
+    <span class="md_line">$$A^3$$</span>
+</p>
+
+
+<ul>
+<li>PDF分页也是非常有用的，比如我们在写完一个章节之后要写下一个章节就要进入下页了，这时用一下<code>[PAGE]</code>就可以了。</li>
+<li>图片插入的解决方案</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">图片在<code>Markdown</code>里面必须用图片网页的形式，厉害的是<code>Markeditor</code>提供了直接将图片复制粘贴到里面来的方法，虽然可行，但是，有缺点，一个是图片会跟着一起复制到你所写的文档之下，如果图片删了了可能档里的图片就显示不出来了；另一个就是当转成微信的富文本的时候图片会缺失。<br /></span>
+    <span class="md_line">如果嫌麻烦的人直接把图片拖到里面就行了， 如果不嫌麻烦可以花上几分钟注册个图床，再下个软件的话那用起来的感觉是非常爽的。<br /></span>
+    <span class="md_line">我用的<a class="md_compiled" href="https://www.qiniu.com/">七牛图床</a>，就是在其官网上注册一个七牛云账户，其目的是你的图片上传到其云上。(PS:这可不是祃百度云)<br /></span>
+    <span class="md_line md_line_dom_embed"><img class="" src="http://opa3m1qai.bkt.clouddn.com/blog/20171116/214331109.png?imageslim" alt="mark" title="" ><br /></span>
+    <span class="md_line">注册账号之后再注册一个存储空间，然后找到图中密钥部分，还有在新建空间界面找到测试域名，这就是后面要用到的内容。<br /></span>
+    <span class="md_line">然后再下载一个神器<a class="md_compiled" href="http://mpic.lzhaofu.cn/">MPic</a>，其目的就是快速生成你所需要的图片<code>Markdown</code>格式。<br /></span>
+    <span class="md_line md_line_dom_embed"><img class="" src="http://opa3m1qai.bkt.clouddn.com/blog/20171116/215227176.png?imageslim" alt="mark" title="" ><br /></span>
+    <span class="md_line">将其对应填入就ok了。<br /></span>
+    <span class="md_line">这是<code>MPic</code>的<a class="md_compiled" href="https://mpic.kf5.com/hc/kb/article/214632/">官方教程</a>，说得还是非常详细的。<br /></span>
+    <span class="md_line">具体用法就是将图片拖入软件里面，就会自己上传到云，再生成一个<code>Markdown</code>图片格式，直接<code>Ctrl+V</code>就可以了。屡试不爽。<br /></span>
+    <span class="md_line">最后，如果感觉到好用的话请<strong>打赏作者</strong>。</span>
+</p>
+
+
+<ul>
+<li>首行缩进</li>
+<li>中文输入法支持</li>
+<li>全文检索</li>
+<li>软件置顶</li>
+<li>单个文件独立窗口</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line">以上这四个功能是我认为它与其它软件不同的地方，也是吸引我的地方(当然，还有很多别的吸引我的东西)。<br /></span>
+    <span class="md_line">首行缩进应该是中文写作的特色，这也只有本土化软件才能做的如此细致；中文输入法的支持就是在打一些中括号或者是书名号的时候不用切换输入法到英文状态，就可以直接识别转换成英语符号，这个也爽到飞起；全文检索是指在文件菜单栏下的全文检索，而不是<code>Ctrl+F</code>的那个检索，有点<code>Everything</code>的感脚；软件置顶是在某些特殊需求下将软件放在最前面，QQ这个不要脸的天天这么干。</span>
+</p>
+
+
+<h3 id="toc_3">使用过程中遇到的问题</h3>
+
+<ul>
+<li>跨设备同步问题</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">这也是个老生常谈了，要求无非就是速度快，安全。我选择的解决方案是<strong>坚果云</strong>，把文件夹丢里面就不用管了，因为<code>Markeditor</code>就是基于文件夹树的一个管理方案，同步性极其好，基本上在电脑上做了修改，在另一台终端上立刻就能同步，更令人惊喜的是<strong>坚果云的手机客户端竟然可以打开.md文件</strong>，这样如果我真的有需要的话，也可以在手机上临时查看和修改我的文件了。</span>
+</p>
+
+
+<ul>
+<li>标题同时加大，加粗，居中</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">我是这样解决的，应该还有更好的办法，基本方法就是调用<code>Html</code>里面的语法。如果以后遇到此类问题也可以照猫画虎，如法炮制。<br /></span>
+    <span class="md_line md_line_dom_embed"><code>&lt;center&gt;&lt;font size=6&gt;&lt;b&gt;浅析王小波《黄金时代》语言特色&lt;/b&gt;&lt;/font&gt;&lt;/center&gt;</code><br /></span>
+    <span class="md_line md_line_dom_embed"><center><font size=6><b>浅析王小波《黄金时代》语言特色</b></font></center></span>
+</p>
+
+
+<ul>
+<li>有序列表跨段落</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line">先描述一下这个问题，就是在1.之后如果和2.之间有一个或者一些段落的话，那个2.就会自己变成1.</span>
+</p>
+
+
+<pre><code>1. 这是第一个
+    这里有一段
+2. 这是第二个</code></pre>
+
+<!--block_code_end-->
+<ol>
+<li>这是第一个列表，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，</li>
+</ol>
+
+<p class="md_block md_has_block_below md_has_block_below_ol">
+    <span class="md_line">吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，</span>
+</p>
+
+
+<ol>
+<li>这里有一段，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦</li>
+</ol>
+
+<p class="md_block md_has_block_below md_has_block_below_ol">
+    <span class="md_line">可以看到，这个2变成了1，就是说在<code>Markdown</code>里面只允许两个相邻的段落从1到2，如果中间有段落的话就又会从1开始，解决方法就是<strong>把1到2中间的每一段都加一个Tab</strong>，如下所示就是正常显示了，但是这样出来就1的第二段就会比较丑，这就不能忍了。</span>
+</p>
+
+
+<ol>
+<li>
+<p class="md_block">
+    <span class="md_line">这是第一个列表，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line">吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦，</span>
+</p></li>
+<li>
+<p class="md_block">
+    <span class="md_line">这里有一段，吧啦吧啦，吧啦吧啦，吧啦吧啦，吧啦吧啦</span>
+</p></li>
+</ol>
+
+<ul>
+<li>图片大小调整</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">这个就比较简单了，说明里有，一共有两种办法，见说明里的基本用法。</span>
+</p>
+
+
+<ul>
+<li>打印页面格式设置</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">因为转出来的pdf格式是不能设置的，个人感觉<code>Markeditor</code>导出的pdf页边距太大了，简直不能忍，我的解决方案是<strong>导成HTML的格式，然后再用IE进行打印，</strong>这时就可以设置页眉页脚以及页边距了，据我所试，火狐和<code>Chrom</code>貌似在打印这块都不行。</span>
+</p>
+
+
+<ul>
+<li>微信输出</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">如果你有一个微信公众号，那么<code>Markeditor</code>就更值得你拥有了， 微信自己的写公众号的网页简直不能忍，<code>Markeditor</code>自带导出为微信公众号格式的选项，直接<code>Ctrl+V</code>在里面就行了，基本不用改动(当然，只是说文字和图片比较多而没有那么多复杂格式如图表之类的内容)。也是令人怦然心动的一个功能。</span>
+</p>
+
+
+<ul>
+<li>特殊符号</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line">这里的特殊符号有两类，一种是指用于写<code>Markdown</code>标记语法的符号在文本中以普通符号来表示，如-&gt;#...，其使用方法是在其前面加上一个反斜杠，就可以当作普通符号来使用了。<br /></span>
+    <span class="md_line"><code>Markdown</code> 支持在下面这些符号前面加上反斜杠来帮助插入普通的符号：</span>
+</p>
+
+
+<pre><code>\   反斜杠
+`   反引号
+*   星号
+_   底线
+{}  大括号
+[]  方括号
+()  括号
+#   井字号
++    加号
+-    减号
+.   英文句点
+!   惊叹号</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">另外一种符号就是比较一些特殊的字符， 比如   &theta;  &delta;    &pi; &forall;   &copy; 等等。<br /></span>
+    <span class="md_line">其实很简单，<a class="md_compiled" href="http://www.jb51.net/onlineread/htmlchar.htm">HTML特殊字符编码对照表</a>就是为了解决这个问题而生的，只需要找于相应的符号的编码直接<code>Ctrl+V</code>过来就OK了。</span>
+</p>
+
+
+<h3 id="toc_4">后记</h3>
+
+<blockquote>
+
+<p class="md_block">
+    <span class="md_line">世界上并不缺少美，而是缺少发现美的眼睛 <br /></span>
+<span class="md_align_right " style="text-align: right;display: block;">罗丹</span><!--right-->
+</p>
+
+</blockquote>
+
+<p class="md_block">
+    <span class="md_line">我们或许已经习惯了蹩脚的<code>Word</code>的书写方式，却没有想到世界上还会有如此美妙东西在等待着我们，用<code>Markdown</code>去享受书写，去享受码字的快乐，我觉得这是我们每一个人都应该享受的权利。<br /></span>
+    <span class="md_line">非常感谢本软件的作者，可以提供在我看来已经完美的一个产品。<br /></span>
+    <span class="md_line">最后，希望种草成功。</span>
+</p>
+    </div>
+</div>
+
+
+        <script src="https://static.farbox.com/service/static_3rd/staticfile/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-AMS_HTML-full.js" type= "text/javascript">
+           MathJax.Hub.Config({
+               tex2jax: {
+                    inlineMath: [ ['$','$']],
+                    displayMath: [ ['$$','$$'] ]
+                    },
+                "HTML-CSS": {
+                    imageFont: null,
+                    availableFonts: ["TeX"],
+                    preferredFont: "TeX"
+                },
+                extensions: ["jsMath2jax.js", 'tex2jax.js', 'MatchWebFonts.js'],
+                messageStyle: "none"
+            });
+        </script>
+        
+        <script>
+            MathJax.Hub.signal.Interest(function (message) {
+                if (message[0]=='End Process' && navigator.appVersion.indexOf('MarkEditor')!='-1'){
+                    if ($){
+                        $('.mtext span').css('font-size', '82%');
+                        $('.MathJax').css('font-size', '1.52em');
+                    }
+                }
+            })
+        </script>
+        
+
+</body>
+</html>
